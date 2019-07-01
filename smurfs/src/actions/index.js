@@ -35,3 +35,16 @@ export const getData = () => dispatch => {
       })
       .catch(err => alert('There was an Error: ', err))
 }
+
+export const addSmurf = smurf => dispatch =>{
+
+      axios.post('http://localhost:3333/smurfs', smurf)
+      .then(res=>{
+          console.log("this is the resoponse from the add smurf func", res)
+          dispatch({
+            type:POST_NEW_SMURF,
+            payload: res.data
+          })
+      })
+      .catch(err => alert("There was an Error adding your Smurf: ", err))
+}

@@ -8,14 +8,7 @@ import {FETCHING_DATA , FETCH_DATA_SUCCESSFUL, POST_NEW_SMURF, UPDATE_SMURF, DEL
  */
 
  const defaultState = {
-   smurfs: [
-    {
-      name: 'ROSE',
-      age: 500,
-      height: '5cm',
-      id: 0
-    }
-   ],
+   smurfs: [],
    fetchingSmurfs: false,
    addingSmurf: false,
    updatingSmurf: false,
@@ -48,6 +41,14 @@ export const rootReducer = (state = defaultState, action) => {
                 error: '',
                 smurfs: action.payload
               }
+
+              case POST_NEW_SMURF:
+                return{
+                  ...state,
+                  error: '',
+                  smurfs: action.payload
+                }
+                
 
           default: 
           return state;
