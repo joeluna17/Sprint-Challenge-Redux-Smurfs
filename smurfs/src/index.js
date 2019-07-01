@@ -10,7 +10,7 @@ import { rootReducer } from './reducers';
 
 const store = createStore(
   rootReducer, // this is the most basic reducer. A function that returns and object. Replace it.
-  applyMiddleware(thunk)
+  applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(

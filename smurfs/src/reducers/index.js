@@ -1,6 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
+import {FETCHING_DATA , FETCH_DATA_SUCCESSFUL, POST_NEW_SMURF, UPDATE_SMURF, DELETE_SMURF } from "../actions"
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -9,8 +10,8 @@
  const defaultState = {
    smurfs: [
     {
-      name: 'Brainey',
-      age: 200,
+      name: 'ROSE',
+      age: 500,
       height: '5cm',
       id: 0
     }
@@ -33,7 +34,22 @@
 export const rootReducer = (state = defaultState, action) => {
         switch(action.type){
 
+          case FETCHING_DATA:
+            return{
+              ...state,
+              fetchingSmurfs: true,
+              error: action.payload
+            }
 
-          default: state;
+            case FETCH_DATA_SUCCESSFUL:
+              return{
+                ...state,
+                fetchingSmurfs: false,
+                error: '',
+                smurfs: action.payload
+              }
+
+          default: 
+          return state;
         }
 }
