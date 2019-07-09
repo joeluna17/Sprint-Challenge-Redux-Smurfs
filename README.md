@@ -23,8 +23,21 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+   Actions in Redux are declarative variables / associated statements that tell us what actions are taking place in the store and leave allow us to track the mutations in our applications state. 
+   Reducers in Redux are functions that allow us to take in and actions type and payload and make use of them in our state. This is done by switching on an actions type and computing some logic for that particular state.
+   Store in Redux is as the name suggest as it holds the applications state data that we can mutate with our reducer although Redux state is not directly mutated but rather copied and then whatever data is being added or changed will then execute providing a whole new state which leads to better state management and less bugs. 
+   The Store is know as the single sorce of truth because we cannot mutate it directly from a component, but we can access it in anywhere in our application via the provider/reducer/connect rather than having multiple states in components that can become very confusing when the application starts to grow in complexity. With Redux we can scale.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+    Application state is state management that is available to us application wide and not dependent on parent child relationship. Component state is state that lives in a classical component, and would have to be passed from parent to child component for state access. If the application is expected to become large then you might want to think about the scaleability and choose a application state management library like Redux. If there are only a few components and the data will not be expected to be to in depth then you can stick with Component state.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+
+    Redux-Thunk is a middleware that allows us to intercept an action and manipulate the data or action all-together. This is especially important to making async calls as React can make AJAX calls to a API, but Redux by nature is not an async library. Intercepting a request to get some data with Thunk makes this process async and lets us use the full power of React unrestricted and without having to wait on the AJAX call to return before executing more code.
+
 
 ## Project Set Up
 
